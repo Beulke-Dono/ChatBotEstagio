@@ -1,0 +1,179 @@
+/* ================================================== */
+/* Variáveis de Cores */
+/* ================================================== */
+:root {
+    --primary-color: #007bff;       /* Cor primária (azul) */
+    --primary-hover: #0056b3;       /* Cor primária ao passar o mouse */
+    --background-color: #ffffff;    /* Cor de fundo do chat */
+    --text-color: #000000;          /* Cor do texto */
+    --border-color: #ddd;           /* Cor das bordas */
+    --primary-text: #969393;
+    --button-color: #f9f9f9;        /* Cor de fundo do botão de entrada */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Cor da sombra */
+}
+
+/* ================================================== */
+/* Estilos Gerais */
+/* ================================================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+}
+
+/* ================================================== */
+/* Extras */
+/* ================================================== */
+
+/* Spinner */
+.button-spinner {
+    display: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 3px solid var(--button-color);
+    border-color: var(--button-color) transparent var(--button-color) transparent;
+    animation: spin 1.2s linear infinite;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mensagem inicial */
+.chat-message small {
+    font-size: 0.9em;
+    color: var(--primary-text);
+}
+
+/* ================================================== */
+/* Botão de Abrir/Fechar o Chat */
+/* ================================================== */
+.chat-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    z-index: 1000;
+}
+
+.chat-toggle-button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ================================================== */
+/* Container do Chat */
+/* ================================================== */
+.chat-container {
+    position: fixed;
+    bottom: 90px; /* Posiciona o chat acima do botão */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.chat-container.visible {
+    display: flex; /* Exibe o chat quando a classe 'visible' é adicionada */
+}
+
+/* ================================================== */
+/* Cabeçalho do Chat */
+/* ================================================== */
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-chat-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-chat-button:hover {
+    color: #ccc;
+}
+
+/* ================================================== */
+/* Área de Mensagens */
+/* ================================================== */
+.chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Estilo para as mensagens */
+.chat-box div {
+    margin-bottom: 10px; /* Distância entre as mensagens */
+    line-height: 1.4;   /* Ajusta o espaçamento entre linhas */
+}
+
+.chat-box p {
+    margin: 5px;
+}
+
+/* Estilo para o nome do emissor */
+.chat-box strong {
+    display: block;     /* Coloca o nome em uma linha separada */
+    margin-bottom: 1px; /* Distância entre o nome e o conteúdo */
+    color: var(--text-color);
+}
+
+/* ================================================== */
+/* Área de Entrada de Mensagens */
+/* ================================================== */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: var(--button-color);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: var(--primary-hover);
+}

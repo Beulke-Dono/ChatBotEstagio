@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&Bar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Botão para abrir/fechar o chat -->
+    <button id="chat-toggle-button" class="chat-toggle-button">💬</button>
+
+    <!-- Container do chat -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            Atendente Virtual Sebas
+            <button id="close-chat-button" class="close-chat-button">×</button>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Mensagem inicial com políticas de privacidade -->
+            <div class="chat-message">
+                <strong>Sebas:</strong> Olá! Sou o Sebas, seu assistente virtual. Como posso ajudar você hoje? 😊
+                <br><br>
+                <small>
+                    <strong>Ajuda e Informações:</strong><br>
+                    Este chatbot utiliza inteligência artificial para fornecer assistência. Suas interações são processadas de forma segura e confidencial.
+                    <br><br>
+                    <strong>Informações de LGPD e Privacidade:</strong><br>
+                    - Seus dados pessoais são tratados de acordo com a Lei Geral de Proteção de Dados (LGPD).<br>
+                    - Não compartilhamos suas informações com terceiros sem seu consentimento.<br>
+                    - Você tem direito de acessar, corrigir e solicitar a exclusão dos seus dados.<br>
+                    - Para mais informações sobre nossa política de privacidade, entre em contato conosco.
+                </small>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-message" placeholder="Digite sua mensagem...">
+            <!-- Botão de envio com spinner embutido -->
+            <button id="send-button" onclick="sendMessage()">
+                <span id="button-text">Enviar</span>
+                <div id="button-spinner" class="button-spinner"></div>
+            </button>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
